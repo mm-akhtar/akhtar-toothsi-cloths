@@ -1,0 +1,57 @@
+.cloths {
+  max-width: 60rem;
+  width: 90%;
+  margin: 2rem auto;
+  animation: cloths-appear 1s ease-out forwards;
+}
+
+.MealsLoading {
+  text-align: center;
+  color: white;
+}
+
+.MealsError {
+  text-align: center;
+  color: red;
+}
+
+.cloths ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.head>div {
+  min-width: 100px;
+}
+
+.head>.description {
+  width: 200px;
+}
+
+.filter {
+  display: flex;
+  gap: 10px;
+}
+
+@keyframes cloths-appear {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
