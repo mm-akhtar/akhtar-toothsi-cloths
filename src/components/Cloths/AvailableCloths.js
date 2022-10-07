@@ -8,6 +8,7 @@ const AvailableCloths = () => {
 	const [isloading, setIsLoading] = useState(true);
 	const [httpError, setHttpError] = useState(null);
 	const [allRowData, setAllRowData] = useState([]);
+	const [search, setSearch] = useState('');
 
 	useEffect(() => {
 		const fetchCloths = async () => {
@@ -46,6 +47,7 @@ const AvailableCloths = () => {
 	const [productValue, setProductValue] = useState('All');
 	const handleSelect = (e) => {
 		e = e.target.value;
+		setSearch('');
 		setProductValue(e);
 		if (brandValue === 'All') {
 			if (e === 'All') {
@@ -69,6 +71,7 @@ const AvailableCloths = () => {
 
 	const handleBrandSelect = (e) => {
 		e = e.target.value;
+		setSearch('');
 		setBrandtValue(e);
 		if (productValue === 'All') {
 			if (e === 'All') {
@@ -100,6 +103,19 @@ const AvailableCloths = () => {
 	const clothsList = cloths.map((cloth) => (
 		<ClothItem key={cloth.id} id={cloth.id} name={cloth.name} description={cloth.description} img={cloth.img} size={cloth.size} category={cloth.category} color={cloth.color} price={cloth.price} />
 	));
+
+	const performSearch = () => {
+		if (search.length > 0) {
+			const tempRow = allRowData.filter((row) => row.name.toLowerCase().includes(search.toLocaleLowerCase()));
+			setCloths(tempRow);
+		} else {
+			setCloths(allRowData);
+		}
+		setIsLoading(true);
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 100);
+	};
 
 	return (
 		<section className={classes.cloths}>
@@ -143,6 +159,12 @@ const AvailableCloths = () => {
 							}}>
 							Reset filter
 						</span>
+					</div>
+					<div>
+						<input id='search' type='search' placeHolder='Global Search' className={classes.input} value={search} onChange={(e) => setSearch(e.target.value)} />
+						<label for='search' className={classes.button} onClick={performSearch}>
+							Search
+						</label>
 					</div>
 				</ul>
 			</Card>

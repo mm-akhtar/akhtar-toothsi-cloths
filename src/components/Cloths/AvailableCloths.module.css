@@ -55,3 +55,23 @@
     transform: translateY(0);
   }
 }
+
+.button {
+  font: 10px !important;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #8a2b06;
+  padding: 0.3rem 1.5rem;
+  border-radius: 15px;
+  margin-left: 1rem;
+  background-color: #8a2b06;
+  color: white;
+}
+
+.input {
+  height: 100% !important;
+  background-color: transparent;
+  border: 1px solid #8a2b06;
+  border-radius: 15px;
+  padding-left: 10px !important;
+}

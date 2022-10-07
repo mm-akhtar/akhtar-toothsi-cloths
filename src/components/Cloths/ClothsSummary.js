@@ -4,8 +4,8 @@ const ClothsSummary = () => {
 	return (
 		<section className={classes.summary}>
 			<h2>Shop What you you want</h2>
-			<p>Sorry search functionality is not implemented. due to time shortage</p>
-			<p>You can use the filters and cart</p>
+			<p>Yaa!! search functionality is implemented try to use word from product name for search</p>
+			<p>Now!! You can use the filters, search and cart</p>
 		</section>
 	);
 };

@@ -5,6 +5,7 @@ import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
 import Checkout from './Checkout';
+import { NavLink } from 'react-router-dom';
 
 const Cart = (props) => {
 	const cartCtx = useContext(CartContext);
@@ -51,10 +52,18 @@ const Cart = (props) => {
 
 	const modelActions = (
 		<div className={classes.actions}>
-			<button className={classes['button--alt']} onClick={props.onClose}>
-				Close
-			</button>
-			{hasItems && <button className={classes.button}>Order</button>}
+			<NavLink to='/home'>
+				<button className={classes['button--alt']} onClick={props.onClose}>
+					Back
+				</button>
+			</NavLink>
+			{hasItems && (
+				<NavLink to='/order'>
+					<button className={classes.button} onClick={() => cartCtx.clearCart()}>
+						Order
+					</button>
+				</NavLink>
+			)}
 		</div>
 	);
 
