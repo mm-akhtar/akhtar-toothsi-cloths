@@ -28,6 +28,7 @@ const ClothItem = (props) => {
 							height: '80px',
 							width: '80px',
 						}}
+						alt='product'
 						className={classes.img}
 					/>
 				</div>
